@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3000/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="module">import { injectIntoGlobalHook } from "/@react-refresh";
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+    <script type="module" src="http://localhost:3000/@vite/client"></script>
+
+    
+    <link rel="icon" type="image/svg+xml" href="http://localhost:3000/vite.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Signature Generator</title>
+  <style type="text/css" data-vite-dev-id="/Users/henrique/Downloads/email-signature-generator-main/signature-src/index.css">/*! tailwindcss v4.1.18 | MIT License | https://tailwindcss.com */
+@layer properties;
+@layer theme, base, components, utilities;
+@layer theme {
+  :root, :host {
+    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+    --color-yellow-200: oklch(94.5% 0.129 101.54);
+    --color-yellow-400: oklch(85.2% 0.199 91.936);
+    --color-zinc-100: oklch(96.7% 0.001 286.375);
+    --color-black: #000;
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-base: 1rem;
+    --text-base--line-height: calc(1.5 / 1);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
+    --font-weight-bold: 700;
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+  }
+}
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+  }
+  html,
+  :host {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    -moz-tab-size: 4;
+      -o-tab-size: 4;
+         tab-size: 4;
+    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
+    -webkit-tap-highlight-color: transparent;
+  }
+  hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+  }
+  abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+  b,
+  strong {
+    font-weight: bolder;
+  }
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+    font-feature-settings: var(--default-mono-font-feature-settings, normal);
+    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-size: 1em;
+  }
+  small {
+    font-size: 80%;
+  }
+  sub,
+  sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  sup {
+    top: -0.5em;
+  }
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+  :-moz-focusring {
+    outline: auto;
+  }
+  progress {
+    vertical-align: baseline;
+  }
+  summary {
+    display: list-item;
+  }
+  ol,
+  ul,
+  menu {
+    list-style: none;
+  }
+  img,
+  svg,
+  video,
+  canvas,
+  audio,
+  iframe,
+  embed,
+  object {
+    display: block;
+    vertical-align: middle;
+  }
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+  button,
+  input,
+  select,
+  optgroup,
+  textarea,
+  ::file-selector-button {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    border-radius: 0;
+    background-color: transparent;
+    opacity: 1;
+  }
+  :where(select:is([multiple], [size])) optgroup {
+    font-weight: bolder;
+  }
+  :where(select:is([multiple], [size])) optgroup option {
+    padding-inline-start: 20px;
+  }
+  ::file-selector-button {
+    margin-inline-end: 4px;
+  }
+  ::-moz-placeholder {
+    opacity: 1;
+  }
+  ::placeholder {
+    opacity: 1;
+  }
+  @supports (not (-webkit-appearance: -apple-pay-button))  or
+    (contain-intrinsic-size: 1px) {
+    ::-moz-placeholder {
+      color: currentcolor;
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, currentcolor 50%, transparent);
+      }
+    }
+    ::placeholder {
+      color: currentcolor;
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, currentcolor 50%, transparent);
+      }
+    }
+  }
+  textarea {
+    resize: vertical;
+  }
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  ::-webkit-date-and-time-value {
+    min-height: 1lh;
+    text-align: inherit;
+  }
+  ::-webkit-datetime-edit {
+    display: inline-flex;
+  }
+  ::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+  }
+  ::-webkit-datetime-edit,
+  ::-webkit-datetime-edit-year-field,
+  ::-webkit-datetime-edit-month-field,
+  ::-webkit-datetime-edit-day-field,
+  ::-webkit-datetime-edit-hour-field,
+  ::-webkit-datetime-edit-minute-field,
+  ::-webkit-datetime-edit-second-field,
+  ::-webkit-datetime-edit-millisecond-field,
+  ::-webkit-datetime-edit-meridiem-field {
+    padding-block: 0;
+  }
+  ::-webkit-calendar-picker-indicator {
+    line-height: 1;
+  }
+  :-moz-ui-invalid {
+    box-shadow: none;
+  }
+  button,
+  input:where([type="button"], [type="reset"], [type="submit"]),
+  ::file-selector-button {
+    -webkit-appearance: button;
+       -moz-appearance: button;
+            appearance: button;
+  }
+  ::-webkit-inner-spin-button,
+  ::-webkit-outer-spin-button {
+    height: auto;
+  }
+  [hidden]:where(:not([hidden="until-found"])) {
+    display: none !important;
+  }
+}
+@layer utilities {
+  .container {
+    width: 100%;
+    @media (width >= 40rem) {
+      max-width: 40rem;
+    }
+    @media (width >= 48rem) {
+      max-width: 48rem;
+    }
+    @media (width >= 64rem) {
+      max-width: 64rem;
+    }
+    @media (width >= 80rem) {
+      max-width: 80rem;
+    }
+    @media (width >= 96rem) {
+      max-width: 96rem;
+    }
+  }
+  .mx-auto {
+    margin-inline: auto;
+  }
+  .mt-1 {
+    margin-top: calc(var(--spacing) * 1);
+  }
+  .mt-3 {
+    margin-top: calc(var(--spacing) * 3);
+  }
+  .mt-6 {
+    margin-top: calc(var(--spacing) * 6);
+  }
+  .mr-2 {
+    margin-right: calc(var(--spacing) * 2);
+  }
+  .mb-1 {
+    margin-bottom: calc(var(--spacing) * 1);
+  }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
+  .block {
+    display: block;
+  }
+  .flex {
+    display: flex;
+  }
+  .grid {
+    display: grid;
+  }
+  .h-5 {
+    height: calc(var(--spacing) * 5);
+  }
+  .min-h-\[200px\] {
+    min-height: 200px;
+  }
+  .min-h-screen {
+    min-height: 100vh;
+  }
+  .w-5 {
+    width: calc(var(--spacing) * 5);
+  }
+  .w-full {
+    width: 100%;
+  }
+  .border-collapse {
+    border-collapse: collapse;
+  }
+  .cursor-not-allowed {
+    cursor: not-allowed;
+  }
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .items-center {
+    align-items: center;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .gap-4 {
+    gap: calc(var(--spacing) * 4);
+  }
+  .gap-6 {
+    gap: calc(var(--spacing) * 6);
+  }
+  .gap-8 {
+    gap: calc(var(--spacing) * 8);
+  }
+  .space-y-6 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 6) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+  .border-2 {
+    border-style: var(--tw-border-style);
+    border-width: 2px;
+  }
+  .border-b-2 {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 2px;
+  }
+  .border-b-4 {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 4px;
+  }
+  .border-black {
+    border-color: var(--color-black);
+  }
+  .bg-black {
+    background-color: var(--color-black);
+  }
+  .bg-white {
+    background-color: var(--color-white);
+  }
+  .bg-yellow-400 {
+    background-color: var(--color-yellow-400);
+  }
+  .bg-zinc-100 {
+    background-color: var(--color-zinc-100);
+  }
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
+  }
+  .p-6 {
+    padding: calc(var(--spacing) * 6);
+  }
+  .px-3 {
+    padding-inline: calc(var(--spacing) * 3);
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+  .px-6 {
+    padding-inline: calc(var(--spacing) * 6);
+  }
+  .py-2 {
+    padding-block: calc(var(--spacing) * 2);
+  }
+  .py-3 {
+    padding-block: calc(var(--spacing) * 3);
+  }
+  .py-6 {
+    padding-block: calc(var(--spacing) * 6);
+  }
+  .pb-3 {
+    padding-bottom: calc(var(--spacing) * 3);
+  }
+  .text-center {
+    text-align: center;
+  }
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+  .text-4xl {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+  .text-base {
+    font-size: var(--text-base);
+    line-height: var(--tw-leading, var(--text-base--line-height));
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .text-black {
+    color: var(--color-black);
+  }
+  .text-white {
+    color: var(--color-white);
+  }
+  .uppercase {
+    text-transform: uppercase;
+  }
+  .shadow-\[4px_4px_0px_\#000\] {
+    --tw-shadow: 4px 4px 0px var(--tw-shadow-color, #000);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-\[8px_8px_0px_\#000\] {
+    --tw-shadow: 8px 8px 0px var(--tw-shadow-color, #000);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-colors {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .duration-150 {
+    --tw-duration: 150ms;
+    transition-duration: 150ms;
+  }
+  .hover\:-translate-x-1 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-translate-x: calc(var(--spacing) * -1);
+        translate: var(--tw-translate-x) var(--tw-translate-y);
+      }
+    }
+  }
+  .hover\:-translate-y-1 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-translate-y: calc(var(--spacing) * -1);
+        translate: var(--tw-translate-x) var(--tw-translate-y);
+      }
+    }
+  }
+  .hover\:shadow-\[8px_8px_0px_\#000\] {
+    &:hover {
+      @media (hover: hover) {
+        --tw-shadow: 8px 8px 0px var(--tw-shadow-color, #000);
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+    }
+  }
+  .focus\:bg-yellow-200 {
+    &:focus {
+      background-color: var(--color-yellow-200);
+    }
+  }
+  .focus\:outline-none {
+    &:focus {
+      --tw-outline-style: none;
+      outline-style: none;
+    }
+  }
+  .active\:translate-x-0 {
+    &:active {
+      --tw-translate-x: calc(var(--spacing) * 0);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
+  .active\:translate-y-0 {
+    &:active {
+      --tw-translate-y: calc(var(--spacing) * 0);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
+  .active\:shadow-\[2px_2px_0px_\#000\] {
+    &:active {
+      --tw-shadow: 2px 2px 0px var(--tw-shadow-color, #000);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .lg\:col-span-2 {
+    @media (width >= 64rem) {
+      grid-column: span 2 / span 2;
+    }
+  }
+  .lg\:col-span-3 {
+    @media (width >= 64rem) {
+      grid-column: span 3 / span 3;
+    }
+  }
+  .lg\:grid-cols-5 {
+    @media (width >= 64rem) {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+  }
+  .lg\:p-8 {
+    @media (width >= 64rem) {
+      padding: calc(var(--spacing) * 8);
+    }
+  }
+}
+@property --tw-space-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-translate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-space-y-reverse: 0;
+      --tw-border-style: solid;
+      --tw-font-weight: initial;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-duration: initial;
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-translate-z: 0;
+    }
+  }
+}
+</style></head>
+  <body class="bg-zinc-100">
+    <div id="root"><div class="min-h-screen bg-zinc-100 text-black"><header class="bg-white border-b-4 border-black"><div class="container mx-auto px-4 py-6"><h1 class="text-4xl font-bold font-mono uppercase">Gerador de Assinatura</h1><p class="mt-1 text-black">Preencha os campos. Gere o HTML. Simples assim.</p></div></header><main class="container mx-auto p-4 lg:p-8"><div class="grid grid-cols-1 lg:grid-cols-5 gap-8"><div class="lg:col-span-2 bg-white p-6 border-2 border-black shadow-[8px_8px_0px_#000]"><div class="space-y-6"><h2 class="text-xl font-bold font-mono uppercase text-black border-b-2 border-black pb-3">Editar Informações</h2><div class="grid grid-cols-1 gap-6"><div><label for="name" class="block text-sm font-bold font-mono uppercase mb-1">Nome Completo</label><input id="name" placeholder="" class="w-full px-3 py-2 border-2 border-black bg-white focus:outline-none focus:bg-yellow-200 transition-colors duration-150" type="text" value="Enrique M" name="name"></div><div><label for="title" class="block text-sm font-bold font-mono uppercase mb-1">Cargo / Departamento</label><input id="title" placeholder="" class="w-full px-3 py-2 border-2 border-black bg-white focus:outline-none focus:bg-yellow-200 transition-colors duration-150" type="text" value="Tecnologia" name="title"></div><div class="grid grid-cols-1 gap-4"><div><label for="mobile" class="block text-sm font-bold font-mono uppercase mb-1">Celular</label><input id="mobile" placeholder="11 96451-8271" class="w-full px-3 py-2 border-2 border-black bg-white focus:outline-none focus:bg-yellow-200 transition-colors duration-150" type="text" name="mobile"></div><div class="grid grid-cols-2 gap-4"><div><label for="phone" class="block text-sm font-bold font-mono uppercase mb-1">Telefone</label><input id="phone" placeholder="11 3088-8100" class="w-full px-3 py-2 border-2 border-black bg-white focus:outline-none focus:bg-yellow-200 transition-colors duration-150" type="text" value="11 3088-8100" name="phone"></div><div><label for="ramal" class="block text-sm font-bold font-mono uppercase mb-1">Ramal</label><input id="ramal" placeholder="159" class="w-full px-3 py-2 border-2 border-black bg-white focus:outline-none focus:bg-yellow-200 transition-colors duration-150" type="text" value="207" name="ramal"></div></div></div><div><label for="address" class="block text-sm font-bold font-mono uppercase mb-1">Endereço</label><input id="address" placeholder="Al. Min. Rocha Azevedo, 456 - São Paulo • 12º andar" class="w-full px-3 py-2 border-2 border-black bg-white focus:outline-none focus:bg-yellow-200 transition-colors duration-150" type="text" value="Al. Min. Rocha Azevedo, 456 - SP • 12º andar" name="address"></div></div></div></div><div class="lg:col-span-3"><div class="bg-white p-6 border-2 border-black shadow-[8px_8px_0px_#000]"><div><h2 class="text-xl font-bold font-mono uppercase text-black mb-4">Preview</h2><div class="p-6 border-2 border-black bg-white min-h-[200px] flex items-center justify-center"><div id="signature-preview-content">
+<table cellpadding="0" cellspacing="0" border="0" style="width:auto; font-family: &#39;Segoe UI&#39;, Tahoma, Geneva, Verdana, sans-serif; color: #1a1a1a; border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <!-- LOGO -->
+      <td valign="middle" style="vertical-align: middle;">
+          <img src="data:image/png;base64,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" alt="SKR Logo" width="168" style="display: block; border: 0;">
+      </td>
+      
+      <!-- ESPAÇO LOGO / LINHA -->
+      <td width="5" style="width: 5px; font-size: 1px; line-height: 1px;">&nbsp;</td>
+
+      <!-- VERTICAL LINE -->
+      <td width="2" style="width: 2px; border-left: 2px solid #666666; vertical-align: middle;">&nbsp;</td>
+
+      <!-- ESPAÇO LINHA / INFO -->
+      <td width="20" style="width: 20px; font-size: 1px; line-height: 1px;">&nbsp;</td>
+
+      <!-- INFO -->
+      <td valign="top" style="vertical-align: top;">
+      
+        <!-- NOME E CARGO -->
+        <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
+          <tbody>
+            <tr>
+              <td style="padding-bottom: 0px; line-height: 22px;">
+                <span style="font-size: 15px; font-weight: bold; color: #1a1a1a;">Enrique M</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding-bottom: 4px; line-height: 12px;">
+                <span style="font-size: 13px; color: #333333;">Tecnologia</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <!-- CONTACT ROWS -->
+        <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
+          <tbody>
+            
+            
+            
+            <tr>
+              <td width="24" valign="middle" style="vertical-align: middle; padding-bottom: 2px;">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAmCAYAAACyAQkgAAAACXBIWXMAAAsSAAALEgHS3X78AAACMklEQVR4AeyXTShmURjH35lpmo+mafbz2UzNYoZsKDsrJRYsbCyUKCwkpUQWJPnaIFE+SgorZWOvbKSUECkLKxbKR8JCvn7/em/dbu7rPcc9St23/+88z7lfz/8993TvPa8TL+QXG436RsUjGo+oxQj855w2KATnspmjr3DVC5vQDkNgcx1OS182BTq4fBPIMCHxmyYPnMrU6D/ctEBQpcENUfdNjZZh4A0E5Xyemhr9EXSY7P8i/gFnMjUadvwtDt+DM4UVDit48cCOHbYVwxY4k6nRg4CTAfpZsABOZWp02+fmkLwRrsC5TI0u+xx9Iv8MzyJTo/u4WgfpI00nPItMjcrUrJoktcRscC4boxO4OgdJD/8REpvrcFr6silwzOWHwVMOSQ04lY1RGeqjOQFPXSRfwZlsjWpU9YnnGftCMgrOZGtUhjQ3V5QkKSJWgBOla/Sh4tdsLIcz8NRP8g38ekunBPSJSLDTU4yq4i5NFdyBpCkwTqKnASHxl2YJ5mEV9JlIMNdTjariHI3/wV9Afw30/t8g5oL0gWYGmsFYURhVUS3ytHZSLjJpNGffEf3S8qWbDf4/RvdxRWVUt76eclqm3BAfUysHVEPaisqoV7CHJB/2IJX0xy5THRDcF7VRXX+RJgM0akfEoPT61TfCdHBHqr4Lo6qn0dLb6iedStArd5Co5+x34hgYyZVRz4SWLpN06qABpuAUjOXaqLGhsBNio2EjY7s9HlHbkQs77x4AAP//k24XLQAAAAZJREFUAwDqekRNyr6QmAAAAABJRU5ErkJggg==" width="16" style="display: block; border: 0;">
+              </td>
+              <td valign="middle" style="padding-bottom: 2px;">
+                <span style="font-size: 13px; color: #1a1a1a; line-height: 14px;">11 3088-8100 • Ramal 207</span>
+              </td>
+            </tr>
+
+            
+            <tr>
+              <td width="24" valign="top" style="vertical-align: top; padding-bottom: 2px; padding-top: 1px;">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAmCAYAAACyAQkgAAAACXBIWXMAAAsSAAALEgHS3X78AAADXUlEQVR4AexYSyt1URh+1nEZuPwBlxiQ28yAAROFpJRESiQD5nKLgVxyye0XGBgoA5eRMsEPMDVwyaWQopABSfi+79m117fXts85a+2zB9Q59eZ5L+t9n/3uvd+1ttCfX/IL4Zf84kSDvlHxjv7Ijp6enmJsbAw1NTUoLCxEQUEBqqurMTo6iuPj40A4x3TrHx8f0dXVheLiYoyPj2N3dxcnJycg8b29PUxOTqKkpAQdHR14eHiIibBvopeXlygvL8fKygo+Pz/Dkvj6+sLq6irKyspwdnYWNi6awxfR5+dn1NXVfSscCoWQmZmJrKwsEDuLX1xcWGuenp6cZm3si+jIyIh1e+0qCQkJ6O/vx9XVFW5ubnB9fW3J0NAQEhMT7TCcn59jcHBQ6ibAmOjt7S2Wl5dlDXZubW0N8/PzVjdtR0ZGBmZnZ7G+vg5eiG3no8ILsnXdv8ZEt7a28P7+LvPzZWppaZG6GzQ2NqK7u1uaPz4+sLGxIXVdYEz04OBAyd3T06PoXoo7xp3Da43bZkz07u5OyVFUVKToXgpjhBDSdX9/L7EuMCaanJys5H55eVF0L4Ux/06T0uXOIR0RgDHR/Px8JR0Hu2LwUPb39xVrXl6eousoxkS5NToTT01N4fX11WlS8Nvbm7VDOY3cap26DjYmWltbCz5zdvKjoyM0NzfDa5BzY+BEODw8tMPBO1JfXy91XWBMlAOc89FZYGdnxzqMcMBz9GxubmJ4eNg6nGxvbztDMTMzg6SkJMWmoxgTZdKGhgZUVVURSuGbPDc3B3aQHebFuCdEZWUlmpqa5BoT4IuoEAILCwvKjhOtKHewxcVFCPF/TEVb4/T7IsoEpaWl6OzsJNSStrY26wSlFewR5Jsoc/G8mZ6eThhRUlNTMT09HTEmmlOXqGceHjz4Ank6Hca+vj5kZ2c7LOYwJqIs19vbi9zcXEJP4dl0YGDA02dijJloSkqKNXLCFeWGkJaWFs6tbY+ZKCu1traioqKCUBF+frS3tys2v0ogRIUQWFpaUj4/hPhu80uS6wIhykTu7oXrMmP9SGBEWZwjiM8jn1vuTLQFJYES5RfoxMSE9Y+HnJycoDhaeQIlyowcVzqzlbEmEjhRk+ImsXGiJt3SiY13VKdLJjF/AQAA//9HknWZAAAABklEQVQDAIPzlLQnLYe5AAAAAElFTkSuQmCC" width="16" style="display: block; border: 0;">
+              </td>
+              <td valign="top" style="padding-bottom: 2px;">
+                <span style="font-size: 13px; color: #1a1a1a; line-height: 16px;">Al. Min. Rocha Azevedo, 456 - SP • 12º andar</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ESPAÇAMENTO REDES SOCIAIS -->
+        <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
+          <tbody>
+            <tr><td height="4" style="font-size: 1px; line-height: 4px;">&nbsp;</td></tr>
+          </tbody>
+        </table>
+
+        <!-- SOCIAL ICONS -->
+        <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
+          <tbody>
+            <tr>
+              <td style="padding-right: 8px;"><a href="https://www.facebook.com/skrincorporadora" target="_blank"><img src="data:image/png;base64,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" alt="f" width="22" style="display: block; border: 0;"></a></td>
+              <td style="padding-right: 8px;"><a href="https://www.instagram.com/skrincorporadora/" target="_blank"><img src="data:image/png;base64,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" alt="i" width="22" style="display: block; border: 0;"></a></td>
+              <td style="padding-right: 8px;"><a href="https://www.linkedin.com/company/skr-incorporadora/" target="_blank"><img src="data:image/png;base64,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" alt="in" width="22" style="display: block; border: 0;"></a></td>
+              <td><a href="https://www.tiktok.com/@skrincorporadora" target="_blank"><img src="data:image/png;base64,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" alt="d" width="22" style="display: block; border: 0;"></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div><div class="mt-6"><button class="w-full flex items-center justify-center px-6 py-3 border-2 border-black text-base font-bold transition-all duration-150 bg-yellow-400 text-black shadow-[4px_4px_0px_#000] hover:shadow-[8px_8px_0px_#000] hover:-translate-y-1 hover:-translate-x-1 active:shadow-[2px_2px_0px_#000] active:translate-y-0 active:translate-x-0"><svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>COPIAR ASSINATURA</button><p class="mt-3 text-sm text-black text-center">Clique para copiar a assinatura acima e cole (Ctrl+V) no seu cliente de email (Outlook, Gmail, etc).</p></div></div></div></div></main></div></div>
+    <script type="module" src="http://localhost:3000/index.tsx"></script>
+  
+
+</body></html>
