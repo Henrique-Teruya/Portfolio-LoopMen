@@ -259,9 +259,43 @@ body {
 }
 
 /* Áreas de Atuação e Contato */
-.sections-final {
-    margin-top: 100px;
-    margin-bottom: 100px;
+.sections-final,
+.fullscreen-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 0;
+}
+
+.sections-final-center {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 0;
+}
+
+.texto-visual {
+    margin-top: 24px;
+    max-width: 800px;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    line-height: 1.6;
+}
+
+@media (min-width: 1024px) {
+    .texto-visual {
+        margin-right: 300px;
+    }
+}
+
+.loopbomb-final {
+    max-width: 900px;
+    width: 100%;
+    height: auto;
+    margin-top: 24px;
 }
 
 .lista-atuacao {
