@@ -792,14 +792,14 @@ body.lightbox-open {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
 }
 
 .highlight-item {
-    height: 380px;
-    /* Consistent height like Lightroom */
+    height: clamp(200px, 35vh, 400px);
+    /* Consistent responsive height like Lightroom */
     display: flex;
     justify-content: center;
     transition: transform 0.3s ease;
@@ -822,26 +822,4 @@ body.lightbox-open {
 
 .highlight-item:hover img {
     filter: brightness(1.1);
-}
-
-@media (max-width: 1024px) {
-    .highlight-item {
-        height: 300px;
-    }
-}
-
-@media (max-width: 768px) {
-    .highlight-item {
-        height: auto;
-        width: 100%;
-    }
-
-    .highlight-item img {
-        width: 100%;
-        height: auto;
-    }
-
-    .highlights-feed {
-        gap: 15px;
-    }
 }
