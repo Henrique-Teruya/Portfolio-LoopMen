@@ -89,16 +89,18 @@ body {
 
 @media (max-width: 768px) {
     .sobre-mim {
-        flex-direction: column;
-        text-align: center;
-        gap: 2rem;
+        flex-direction: row;
+        /* Mantém lado a lado */
+        align-items: center;
+        /* Centraliza com o texto */
+        text-align: left;
+        gap: 1rem;
     }
 
     .sobre-mim .sobre-mim-img {
-        flex: 0 0 auto;
-        width: 100%;
-        max-width: 320px;
-        order: -1;
+        flex: 0 0 120px;
+        width: 120px;
+        height: 120px;
     }
 }
 
@@ -741,9 +743,13 @@ body.lightbox-open {
 
 
 @media (max-width: 768px) {
+    .highlights-feed {
+        gap: 6px;
+    }
+
     .highlight-item {
-        height: clamp(150px, 30vh, 250px);
-        /* Altura menor para o mobile, mantendo o feed */
+        height: clamp(120px, 27vw, 200px);
+        /* Bem menor para replicar o feed do PC */
     }
 }
 
