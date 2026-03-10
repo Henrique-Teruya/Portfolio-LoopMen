@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = lightbox.querySelector('.lightbox-next');
 
     // 2. Selecionar todas as imagens que podem ser ampliadas
-    const galleryImages = document.querySelectorAll('.ilustracao-item img, .estampa-item img, .ilustracao-item-wide img, .ticker__item img, .highlight-item img, .certificado-item img');
+    const galleryImages = document.querySelectorAll('.ilustracao-item img, .ticker__item img, .highlight-item img, .certificado-item img');
 
     const updateLightbox = () => {
         if (currentGroup.length > 0) {
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const container = img.closest('.grid-ilustracoes, .ticker__list, .certificados, .projeto-secao, .highlights-feed, .highlights-section, .certificados-section');
             if (container) {
                 // Pegamos apenas as imagens que fazem parte da galeria dentro deste contêiner
-                currentGroup = Array.from(container.querySelectorAll('.ilustracao-item img, .estampa-item img, .ilustracao-item-wide img, .ticker__item img, .highlight-item img, .certificado-item img'));
+                currentGroup = Array.from(container.querySelectorAll('.ilustracao-item img, .ticker__item img, .highlight-item img, .certificado-item img'));
                 currentIndex = currentGroup.indexOf(img);
             } else {
                 currentGroup = [img];
