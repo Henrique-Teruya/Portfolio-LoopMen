@@ -381,6 +381,7 @@ body {
     background-color: var(--color-background);
     position: relative;
     border-radius: 16px;
+    overflow-wrap: break-word;
 }
 
 .timeline-content h1 {
@@ -710,6 +711,32 @@ body.lightbox-open {
 @media (max-width: 768px) {
     .video-item h2.Titulo {
         font-size: 1.5rem;
+    }
+
+    .timeline {
+        padding: 20px 0;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .timeline::after {
+        left: 20px;
+    }
+
+    .timeline-item {
+        padding: 10px 10px 10px 40px;
+        width: 100%;
+    }
+
+    .timeline-item::after {
+        left: 8px;
+        width: 24px;
+        height: 24px;
+        top: 26px;
+    }
+
+    .timeline-content h1 {
+        font-size: 1.25rem;
     }
 }
 
